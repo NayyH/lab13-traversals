@@ -192,7 +192,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		}
 		postOrderRecurse(node.leftChild);
 		postOrderRecurse(node.rightChild);
-		System.out.print(node + " ");
+		System.out.print(node.data + " ");
 	}
 	
 	//Traverse the tree in an postorder fashion uses Stacks. 
