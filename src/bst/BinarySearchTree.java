@@ -209,7 +209,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 				post.push(curr);
 				
 				if (curr.leftChild != null) {
-					postHelper.push(curr.rightChild);
+					postHelper.push(curr.leftChild);
 				}
 				if (curr.rightChild != null) {
 					postHelper.push(curr.rightChild);
