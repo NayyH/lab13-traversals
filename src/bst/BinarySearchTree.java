@@ -2,6 +2,8 @@ package bst;
 
 import java.util.Stack;
 
+import lab9package.BinarySearchTree.BSTNode;
+
 public class BinarySearchTree<T extends Comparable<T>> {
 	
 	private static class BSTNode<T extends Comparable<T>>{
@@ -117,17 +119,40 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	//Print the current node first and then recurse on the children
 	public void preOrder() {
 		preOrderRecurse(root); 
-		System.out.println("Preorder test commit");
 	}
 	
 	private void preOrderRecurse(BSTNode<T> node) {
-		
+	    if (node == null) {
+	        return;
+	    }
+	    System.out.print(node.data + " ");
+	    preOrderRecurse(node.leftChild);
+	    preOrderRecurse(node.rightChild);
 	}
 	
 	//Traverse the tree in an preorder fashion but using a stack
 	//Print the current node first and then recurse on the children
 	public void preOrderStack() {
 		Stack<BSTNode<T>> pre = new Stack<BSTNode<T>>();
+	    if (root == null) {
+	        return;
+	    }
+	    
+	    Stack<BSTNode<T>> stack = new Stack<>();
+	    stack.push(root);
+	    
+	    while (!stack.isEmpty()) {
+	        BSTNode<T> node = stack.pop();
+	        System.out.print(node.data + " ");
+	        
+	        if (node.rightChild != null) {
+	            stack.push(node.rightChild);
+	        }
+	        
+	        if (node.leftChild != null) {
+	            stack.push(node.leftChild);
+	        }
+	    }
 		
 	}
 		
